@@ -1,0 +1,379 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(87, 83, 83, 0.87);
+  background-color: #e8e8e8;
+}
+
+*{
+  margin: 0px;
+} /*DO NOT DELETE THIS*/
+
+a {
+  font-weight: 500;
+  text-decoration: none;
+  color: black;
+}
+
+header{
+  background-color: #a8a8a8;
+  width: 99.11vw;
+  box-sizing: border-box;
+  padding: 5vh 3vw;
+}
+
+.containerMain {
+  width: 99.12vw;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  padding: 0vh 15vw;
+}
+
+.textContainer{
+  width: 50vw;
+}
+
+footer {
+  min-width: 99.12vw;
+  min-height: 5vh;
+  background-color: black;
+  display: block;
+  position: relative;
+  left:0px;
+  bottom: 0px;
+  margin: 0px;
+  padding: 0px;
+  color: white;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center; 
+  min-width: 320px;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-weight: 650;
+}
+
+button {
+  border-radius: 8px;
+  border: black 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin-top: 1%;
+  margin-left: 1%;
+  margin-right: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ button:hover {
+  border-color: #7a7375;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.carrButton {
+  font-size: 1.5em;
+}
+
+.navButton {
+  padding: 1vh 1vw;
+  margin: 0vw 0.2vw;
+}
+
+.citiesButton {
+  font-size: 100%;
+  background-color: #631818;
+  color: white;
+  font-weight: 600;
+}
+
+.citiesButton:hover {
+  font-size: 110%;
+  font-weight: 650;
+  background-color: red;
+  border: 2px  #631818 solid;
+}
+
+.loginButton {
+  font-size: 100%;
+  background-color: #003767;
+  color: white;
+  font-weight: 550;
+}
+
+.loginButton:hover {
+  font-size: 110%;
+  background-color: blue;
+  border: 2px #003767 solid;
+}
+
+img{
+  width: 25vw;
+}
+
+main {
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popularMyTineraries {
+  text-align: center;
+  color: white;
+}
+
+.carrImageCont {
+  color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  padding: 2vh 0vw;
+}
+
+.carrouselImage {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 187px;
+  width: 250px;
+}
+
+.containerCarr{
+  display: flex;
+  justify-content: center;
+  width: 99.11vw;
+  background-color: #363636;
+  padding: 5vh 0vw;
+}
+
+.carrouselDiv {
+  width: 35vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  flex-wrap: wrap;
+  align-items: center;
+} 
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+header {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  padding: 0vh 5vw;
+  min-height: 5vh;
+}
+
+.homeImage {
+  border: 3px black solid;
+  border-radius: 5px;
+}
+
+.citiesContainer {
+  min-width: 99.11vw;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-around;
+  min-height: 5vh;
+}
+.citiesDivContainer{
+  width: 99vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.citiesText{
+  box-sizing: border-box;
+  display: block;
+  justify-content: center;
+  padding: 3vh 5vw;
+}
+
+.searcher{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 1vh 0vw
+}
+
+.footerLink{
+  color: white;
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 2vh;
+}
+
+@media (max-width: 1280px) and (min-width: 802px) {
+  .containerMain{
+    width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  padding: 0vh 15vw;
+  }
+  .homeImage {
+    width: 50vw;
+  }
+
+  .carrouselImage {
+    height: 35vw;
+    width: 60vw;
+  }
+  .carrouselDiv{
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .containerCarr {
+    width: 99.99vw;
+  }
+}
+
+
+@media (max-width: 801px) {
+  .containerMain{
+    width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  padding: 0vh 15vw;
+  }
+  .homeImage {
+    width: 50vw;
+  }
+
+  .carrouselDiv{
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  
+}
+
+@media (max-width: 670px) {
+  .containerMain{
+    width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  padding: 2vh 15vw;
+  }
+  .homeImage {
+    width: 70vw;
+    margin: 5vh 0vw;
+  }
+
+  .carrButton{
+    width: 2vw;
+  }
+  .carrouselImage {
+    width: 50vw;
+    height: 35vw;
+  }
+
+  .carrouselDiv{
+    width: 65vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  
+}
+@media (max-width: 360px) {
+  .containerMain{
+    width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  padding: 2vh 15vw;
+  }
+  .homeImage {
+    width: 70vw;
+    margin: 5vh 0vw;
+  }
+
+  .carrButton{
+    width: 2vw;
+  }
+  .carrouselImage {
+    width: 50vw;
+    height: 25vw;
+  }
+
+  .carrouselDiv{
+    width:60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
