@@ -274,8 +274,13 @@ header {
 
 h1{
   color: black;
-  padding: 2vh 0vw;
+  margin: 2vh 0vw;
+  padding: 0.5vh 3vw;
   font-style: oblique;
+  background-color: rgba(93, 68, 39, 0.276);
+  border: 1px dashed rgba(93, 68, 39, 0.649);
+  border-radius: 25px;
+  margin-top: 1vh;
 }
 
 .citiesEmptyDivContainer{
@@ -289,6 +294,27 @@ h1{
 
 h5{
   color: white;
+}
+
+.cityPage{
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 1px;
+
+  margin: 2vh 35vw 15vh;
+}
+
+.cityButtonSp {
+  margin: 05vh 11vw;
+}
+
+.underConstruction{
+  font-size: 5vh;
+  font-weight: 550;
+  font-style: italic;
 }
 
 @media (max-width: 1580px) and (min-width: 802px) {
@@ -347,6 +373,16 @@ h5{
     border: 1px solid black;
     border-radius: 5px;
   }
+
+  .cityPage{
+    margin: 2vh 35vw 25vh;
+  }
+
+  .underConstruction{
+    font-size: 2vh;
+    font-weight: 550;
+    font-style: italic;
+  }
 }
 
 @media (max-width: 801px) {
@@ -398,7 +434,16 @@ h5{
     border: 1px solid black;
     border-radius: 5px;
   }
+  .cityPage{
+    width: 70vw;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 1px;
+  
+    margin: 2vh 5vw 20vh;
+  }
 }
+
 
 @media (max-width: 670px) {
   .containerMain{
@@ -457,6 +502,25 @@ h5{
     height: 30vh;
     border: 1px solid black;
     border-radius: 5px;
+  }
+
+  .cityPage{
+    width: 80vw;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 1px;
+  
+    margin: 2vh 5vw 20vh;
+  }
+
+  .cityImage {
+    width: 79.5vw;
+  }
+
+  .underConstruction{
+    font-size: 15px;
+    font-weight: 550;
+    font-style: italic;
   }
 }
 @media (max-width: 360px) {

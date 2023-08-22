@@ -41,7 +41,7 @@ const Cities = () => {
 
   return (<>
     <div className='citiesContainer'>
-      <div>
+      <div className='h1Cities'>
       <h1>Cities</h1>
       </div>
       <form className='searcher' onSubmit={handleSubmit}>
