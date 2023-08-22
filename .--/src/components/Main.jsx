@@ -18,7 +18,7 @@ export default function () {
     {
       title: "Find your perfect trip, designed by insiders who know and love their cities!",
       paragraph: "Our app will help you find the perfect path for your next trip. With an easy-to-use interface and a host of itinerary options, planning your next trip has never been easier.",
-      link: "#",
+      link: "/cities/",
       key: "data"
     }
   ]

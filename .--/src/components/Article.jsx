@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link as AnchorB} from 'react-router-dom'
 
 export default function Article({ title, paragraph, link }) {
   return (
@@ -9,7 +10,7 @@ export default function Article({ title, paragraph, link }) {
     <p className='text-start'>
       {paragraph}
     </p>
-    <a href={link}><button type="button" className="citiesButton">Watch our cities options</button></a>
+    <AnchorB to={link}><button type="button" className="citiesButton">Watch our cities options</button></AnchorB>
   </article>
   )
 }

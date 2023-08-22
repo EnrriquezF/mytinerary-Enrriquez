@@ -1,6 +1,7 @@
 import React from 'react'
 import Anchor from './Anchor'
 
+
 export default function Nav() {
     let data =[
         {href: '/',

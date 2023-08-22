@@ -1,33 +1,67 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState, useRef } from 'react'
+import CityCard from '../components/cityCard'
+import { getAllCities, getCityByName } from '../services/eventsQueries.js'
 
 const Cities = () => {
-  let {id} = useParams()
+  const [cities, setCities] = useState([])
+  const [allCities, setAllCities] = useState([])
+
+  const input = useRef(null)
+
+  useEffect(() =>{
+    getAllCities()
+      .then( (data) =>{
+        setCities(data)
+        setAllCities(data)
+      })
+      .catch((err) => console.log(err))
+  }, []);
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    if(input.current.value){
+      const queryParams = input.current.value;
+      getCityByName(queryParams)
+      .then((answer) => {
+        let citiesFound = []
+        answer.forEach((city) => {
+        if(city.name.toLowerCase().startsWith(queryParams.toLowerCase())){
+          citiesFound.push(city)
+        }
+        
+      })
+      return setCities(citiesFound)
+    })
+      .catch((err) => console.log(err))
+    } else {
+      setCities(allCities)
+    }
+  }
+
+
   return (<>
     <div className='citiesContainer'>
       <div>
-      <h3>Test</h3>
-      <p>{id}</p>
+      <h1>Cities</h1>
       </div>
-      <div className='searcher'>
-        <input type="search" id="mySearch" name="q" />
-        <button>Search</button>
-      </div>
+      <form className='searcher' onSubmit={handleSubmit}>
+        <input type="text" ref={input}/>
+        <button> 🔎 </button>
+      </form>
     </div>
-    <div className='citiesDivContainer'><p className='citiesText'>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione, architecto ea facere, voluptatem vitae et quidem repellendus sunt nulla magni est inventore, aliquid perspiciatis amet. Vero quo perferendis corrupti consequuntur itaque rerum, ex laborum commodi optio officiis repellat ducimus nesciunt? Vitae alias quod reprehenderit voluptates consequatur placeat nobis eius voluptate illum deleniti! Incidunt, voluptas deleniti magni inventore sed sit dolor earum harum error eaque iusto adipisci necessitatibus, accusantium doloremque aut nisi officiis omnis eius, quae modi temporibus ad. Consequuntur eos vero doloribus minima. Quisquam eligendi consectetur, temporibus atque saepe veniam. Unde eveniet et, nisi dicta expedita impedit, quo mollitia amet, similique qui assumenda laborum aperiam provident beatae voluptate repellat quis architecto veniam voluptas ab fuga quod officia? Eaque, delectus explicabo, ex accusamus sit minima nostrum illum beatae soluta odio nesciunt quibusdam? Magnam tempora libero laborum odio quam provident, ipsa laboriosam recusandae cupiditate voluptatem a impedit esse vero, iusto culpa.
-      </p><br />
-      <p className='citiesText'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe unde quis autem a eius fugiat, et eaque maiores. Magnam quos at, alias nesciunt minima perferendis libero, error adipisci delectus quaerat id ab exercitationem quisquam in vitae praesentium tenetur blanditiis nulla officia fugiat, accusantium autem. Ut aspernatur rerum officia nesciunt quis! Recusandae, doloremque earum aperiam eos alias rerum dicta quod rem sunt architecto qui. Eaque aut animi error voluptatum tempore incidunt autem? Velit pariatur est deleniti accusantium magni aperiam ducimus saepe? Perferendis ab ratione consectetur illo iusto! Qui impedit velit consectetur a molestias voluptatem molestiae, at, repellat autem eum dolore laborum ab placeat quaerat architecto saepe explicabo distinctio inventore possimus. Amet voluptatem aperiam vero ipsa quia obcaecati ratione repudiandae? Eveniet repudiandae ab deserunt natus assumenda accusantium fugit, alias aliquid illum voluptas, soluta cumque quod non architecto nemo officia sapiente. Voluptatem dolores labore, nam nulla delectus deserunt nihil ratione dicta necessitatibus omnis adipisci sint voluptate quis voluptatibus sit? Quo libero dolor voluptas similique dolorem quasi dolorum sit, suscipit ab modi. Repudiandae recusandae, perferendis et suscipit optio fugit architecto facilis nulla beatae minima veniam reprehenderit tempore ipsum sed magnam corporis expedita, doloremque libero culpa similique rerum minus a? Ipsa rem maiores deleniti enim odit minus reiciendis qui nulla, tempore, dolorem quod quam commodi repellendus optio deserunt sequi numquam, voluptatibus dolor perferendis vitae at. Ipsum porro, sapiente velit ab quibusdam, dignissimos voluptatibus quasi necessitatibus doloribus quia mollitia magni dolorem soluta consequuntur aliquid odio laboriosam ut voluptatem eos voluptatum adipisci iusto? Corrupti ducimus voluptas architecto quaerat facere praesentium dolor quasi repellat similique! Possimus veritatis doloribus distinctio maxime excepturi quia, dolores illo dicta aliquid, perferendis quidem labore aspernatur architecto molestias nobis vel ratione dolorum sunt nihil. Magni totam placeat deleniti nisi dolorem corrupti alias sapiente voluptatibus perspiciatis id repellendus libero odio commodi ipsa exercitationem, et molestiae.</p>
-      <br /><p className='citiesText'>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione, architecto ea facere, voluptatem vitae et quidem repellendus sunt nulla magni est inventore, aliquid perspiciatis amet. Vero quo perferendis corrupti consequuntur itaque rerum, ex laborum commodi optio officiis repellat ducimus nesciunt? Vitae alias quod reprehenderit voluptates consequatur placeat nobis eius voluptate illum deleniti! Incidunt, voluptas deleniti magni inventore sed sit dolor earum harum error eaque iusto adipisci necessitatibus, accusantium doloremque aut nisi officiis omnis eius, quae modi temporibus ad. Consequuntur eos vero doloribus minima. Quisquam eligendi consectetur, temporibus atque saepe veniam. Unde eveniet et, nisi dicta expedita impedit, quo mollitia amet, similique qui assumenda laborum aperiam provident beatae voluptate repellat quis architecto veniam voluptas ab fuga quod officia? Eaque, delectus explicabo, ex accusamus sit minima nostrum illum beatae soluta odio nesciunt quibusdam? Magnam tempora libero laborum odio quam provident, ipsa laboriosam recusandae cupiditate voluptatem a impedit esse vero, iusto culpa.
-      </p><br />
-      <p className='citiesText'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe unde quis autem a eius fugiat, et eaque maiores. Magnam quos at, alias nesciunt minima perferendis libero, error adipisci delectus quaerat id ab exercitationem quisquam in vitae praesentium tenetur blanditiis nulla officia fugiat, accusantium autem. Ut aspernatur rerum officia nesciunt quis! Recusandae, doloremque earum aperiam eos alias rerum dicta quod rem sunt architecto qui. Eaque aut animi error voluptatum tempore incidunt autem? Velit pariatur est deleniti accusantium magni aperiam ducimus saepe? Perferendis ab ratione consectetur illo iusto! Qui impedit velit consectetur a molestias voluptatem molestiae, at, repellat autem eum dolore laborum ab placeat quaerat architecto saepe explicabo distinctio inventore possimus. Amet voluptatem aperiam vero ipsa quia obcaecati ratione repudiandae? Eveniet repudiandae ab deserunt natus assumenda accusantium fugit, alias aliquid illum voluptas, soluta cumque quod non architecto nemo officia sapiente. Voluptatem dolores labore, nam nulla delectus deserunt nihil ratione dicta necessitatibus omnis adipisci sint voluptate quis voluptatibus sit? Quo libero dolor voluptas similique dolorem quasi dolorum sit, suscipit ab modi. Repudiandae recusandae, perferendis et suscipit optio fugit architecto facilis nulla beatae minima veniam reprehenderit tempore ipsum sed magnam corporis expedita, doloremque libero culpa similique rerum minus a? Ipsa rem maiores deleniti enim odit minus reiciendis qui nulla, tempore, dolorem quod quam commodi repellendus optio deserunt sequi numquam, voluptatibus dolor perferendis vitae at. Ipsum porro, sapiente velit ab quibusdam, dignissimos voluptatibus quasi necessitatibus doloribus quia mollitia magni dolorem soluta consequuntur aliquid odio laboriosam ut voluptatem eos voluptatum adipisci iusto? Corrupti ducimus voluptas architecto quaerat facere praesentium dolor quasi repellat similique! Possimus veritatis doloribus distinctio maxime excepturi quia, dolores illo dicta aliquid, perferendis quidem labore aspernatur architecto molestias nobis vel ratione dolorum sunt nihil. Magni totam placeat deleniti nisi dolorem corrupti alias sapiente voluptatibus perspiciatis id repellendus libero odio commodi ipsa exercitationem, et molestiae.</p>
-      <br /><p className='citiesText'>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis ratione, architecto ea facere, voluptatem vitae et quidem repellendus sunt nulla magni est inventore, aliquid perspiciatis amet. Vero quo perferendis corrupti consequuntur itaque rerum, ex laborum commodi optio officiis repellat ducimus nesciunt? Vitae alias quod reprehenderit voluptates consequatur placeat nobis eius voluptate illum deleniti! Incidunt, voluptas deleniti magni inventore sed sit dolor earum harum error eaque iusto adipisci necessitatibus, accusantium doloremque aut nisi officiis omnis eius, quae modi temporibus ad. Consequuntur eos vero doloribus minima. Quisquam eligendi consectetur, temporibus atque saepe veniam. Unde eveniet et, nisi dicta expedita impedit, quo mollitia amet, similique qui assumenda laborum aperiam provident beatae voluptate repellat quis architecto veniam voluptas ab fuga quod officia? Eaque, delectus explicabo, ex accusamus sit minima nostrum illum beatae soluta odio nesciunt quibusdam? Magnam tempora libero laborum odio quam provident, ipsa laboriosam recusandae cupiditate voluptatem a impedit esse vero, iusto culpa.
-      </p><br />
-      <p className='citiesText'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe unde quis autem a eius fugiat, et eaque maiores. Magnam quos at, alias nesciunt minima perferendis libero, error adipisci delectus quaerat id ab exercitationem quisquam in vitae praesentium tenetur blanditiis nulla officia fugiat, accusantium autem. Ut aspernatur rerum officia nesciunt quis! Recusandae, doloremque earum aperiam eos alias rerum dicta quod rem sunt architecto qui. Eaque aut animi error voluptatum tempore incidunt autem? Velit pariatur est deleniti accusantium magni aperiam ducimus saepe? Perferendis ab ratione consectetur illo iusto! Qui impedit velit consectetur a molestias voluptatem molestiae, at, repellat autem eum dolore laborum ab placeat quaerat architecto saepe explicabo distinctio inventore possimus. Amet voluptatem aperiam vero ipsa quia obcaecati ratione repudiandae? Eveniet repudiandae ab deserunt natus assumenda accusantium fugit, alias aliquid illum voluptas, soluta cumque quod non architecto nemo officia sapiente. Voluptatem dolores labore, nam nulla delectus deserunt nihil ratione dicta necessitatibus omnis adipisci sint voluptate quis voluptatibus sit? Quo libero dolor voluptas similique dolorem quasi dolorum sit, suscipit ab modi. Repudiandae recusandae, perferendis et suscipit optio fugit architecto facilis nulla beatae minima veniam reprehenderit tempore ipsum sed magnam corporis expedita, doloremque libero culpa similique rerum minus a? Ipsa rem maiores deleniti enim odit minus reiciendis qui nulla, tempore, dolorem quod quam commodi repellendus optio deserunt sequi numquam, voluptatibus dolor perferendis vitae at. Ipsum porro, sapiente velit ab quibusdam, dignissimos voluptatibus quasi necessitatibus doloribus quia mollitia magni dolorem soluta consequuntur aliquid odio laboriosam ut voluptatem eos voluptatum adipisci iusto? Corrupti ducimus voluptas architecto quaerat facere praesentium dolor quasi repellat similique! Possimus veritatis doloribus distinctio maxime excepturi quia, dolores illo dicta aliquid, perferendis quidem labore aspernatur architecto molestias nobis vel ratione dolorum sunt nihil. Magni totam placeat deleniti nisi dolorem corrupti alias sapiente voluptatibus perspiciatis id repellendus libero odio commodi ipsa exercitationem, et molestiae.</p>
-      <br />
-      </div></>
+    <div className='Prueba01'>
+    {cities.length > 0?
+    <div className='citiesDivContainer'>
+      {cities.map((cities) =>(
+        <CityCard name={cities.name} country={cities.country} description={cities.description} image={cities.image} alt={cities.alt} link={cities._id} key={cities._id}/>
+      ))
+      }
+      </div>:
+      <div className='citiesEmptyDivContainer'>
+        <h2>No results found.</h2>
+      </div>}
+      </div>
+      </>
     )
 }
 
