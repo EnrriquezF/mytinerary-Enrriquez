@@ -15,16 +15,16 @@ export default function City() {
   }, [])
 
   return (
-    <>
+    <div className='cityPage'>
       <h2>{city.name}, from {city.country}</h2>
       <p className='cityDescription'>{city.description}</p>
-      <img src={city.image} alt={city.alt}/>
+      <img src={city.image} alt={city.alt} className='cityImage'/>
       <p className='underConstruction'>Under Construction</p>
       <AnchorB to="http://127.0.0.1:5173/cities/">
-        <button className='cityButton'>
+        <button className='cityButton cityButtonSp'>
           Return to Cities
         </button>
       </AnchorB>
-    </>
+    </div>
   )
 }
