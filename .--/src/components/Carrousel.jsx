@@ -59,10 +59,6 @@ export default function Carrousel() {
                   <img src={image4} alt="" className='carrouselImage'/>
                   <p>Moscow, Russia</p>
                 </div>
-                
-                
-                
-                
               </div>
             }
             {carrousel == 2 && 

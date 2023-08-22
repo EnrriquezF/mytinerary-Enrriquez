@@ -43,11 +43,10 @@ header{
 footer {
   min-width: 99.12vw;
   min-height: 5vh;
+  position: fixed;
+  bottom: 0;
   background-color: black;
   display: block;
-  position: relative;
-  left:0px;
-  bottom: 0px;
   margin: 0px;
   padding: 0px;
   color: white;
@@ -165,6 +164,7 @@ main {
   width: 99.11vw;
   background-color: #363636;
   padding: 5vh 0vw;
+  margin-bottom: 10vh;
 }
 
 .carrouselDiv {
@@ -233,7 +233,65 @@ header {
   padding-top: 2vh;
 }
 
-@media (max-width: 1280px) and (min-width: 802px) {
+.citiesDivContainer{
+  display: grid;
+  grid-template-columns: repeat(4, 0fr);
+  grid-gap: 85px;
+  grid-auto-rows: minmax(33vh, auto);
+  vertical-align: middle;
+  margin: 1vh 0vw 10vh;
+  min-height: 75.4vh;
+}
+
+.divCard {
+  margin: 2vh 2vw;
+  padding: 1vh 1vw;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 42.3vh;
+}
+
+.imgCityCard{
+  width: 15vw;
+  height: 18vh;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.searcher{
+  padding: 2vh 0vw;
+  height: 3vh;
+}
+
+.cityButton {
+  position: inheret;
+  bottom: 0;
+}
+
+.cityButton:hover{
+  background-color: rgb(16, 54, 74);
+}
+
+h1{
+  color: black;
+  padding: 2vh 0vw;
+  font-style: oblique;
+}
+
+.citiesEmptyDivContainer{
+  color: rgb(86, 0, 0);
+  margin-top: 25vh;
+  margin-left: 25vw;
+  font-size: 160%;
+  font-style: italic;
+  
+}
+
+h5{
+  color: white;
+}
+
+@media (max-width: 1580px) and (min-width: 802px) {
   .containerMain{
     width: 100vw;
   box-sizing: border-box;
@@ -264,8 +322,32 @@ header {
   .containerCarr {
     width: 99.99vw;
   }
-}
 
+  .citiesDivContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 0fr);
+    grid-gap: 10vw;
+    grid-auto-rows: minmax(33vh, auto);
+    vertical-align: middle;
+    margin: 1vh 0vw 15vh;
+    min-height: 25vh;
+  }
+  
+  .divCard {
+    margin: 2vh 2vw;
+    padding: 1vh 1vw;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 80vh;
+  }
+  
+  .imgCityCard{
+    width: 17vw;
+    height: 12vh;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+}
 
 @media (max-width: 801px) {
   .containerMain{
@@ -292,6 +374,30 @@ header {
     align-items: center;
   }
   
+  .citiesDivContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 0fr);
+    grid-gap: 3vw;
+    grid-auto-rows: minmax(33vh, auto);
+    vertical-align: middle;
+    margin: 1vh 0vw 15vh;
+    min-height: 105vh;
+  }
+  
+  .divCard {
+    margin: 2vh 2vw;
+    padding: 1vh 1vw;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 60vh;
+  }
+  
+  .imgCityCard{
+    width: 40vw;
+    height: 18vh;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
 }
 
 @media (max-width: 670px) {
@@ -328,6 +434,30 @@ header {
     align-items: center;
   }
   
+  .citiesDivContainer{
+    display: grid;
+    grid-template-columns: repeat(1, 0fr);
+    grid-gap: 4vw;
+    grid-auto-rows: minmax(33vh, auto);
+    vertical-align: middle;
+    margin: 1vh 0vw 15vh;
+    min-height: 15vh;
+  }
+  
+  .divCard {
+    margin: 2vh 1vw 2vh 3vw;
+    padding: 1vh 1vw;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 63vh;
+  }
+  
+  .imgCityCard{
+    width: 90vw;
+    height: 30vh;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
 }
 @media (max-width: 360px) {
   .containerMain{
@@ -363,6 +493,30 @@ header {
     align-items: center;
   }
   
+  .citiesDivContainer{
+    display: grid;
+    grid-template-columns: repeat(1, 0fr);
+    grid-gap: 4vw;
+    grid-auto-rows: minmax(33vh, auto);
+    vertical-align: middle;
+    margin: 1vh 0vw 15vh;
+    min-height: 15vh;
+  }
+  
+  .divCard {
+    margin: 2vh 2vw;
+    padding: 1vh 1vw;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 63vh;
+  }
+  
+  .imgCityCard{
+    width: 90vw;
+    height: 30vh;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
 }
 
 @media (prefers-color-scheme: light) {
