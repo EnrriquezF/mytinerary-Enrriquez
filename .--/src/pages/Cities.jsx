@@ -1,40 +1,28 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import CityCard from '../components/cityCard'
-import { getAllCities, getCityByName } from '../services/eventsQueries.js'
+import { useDispatch, useSelector } from 'react-redux'
+import cityActions from '../store/actions/cities'
+
+
+
 
 const Cities = () => {
-  const [cities, setCities] = useState([])
-  const [allCities, setAllCities] = useState([])
+  let citiesInStore = useSelector(store => store.citiesReducer.cities)
 
+   let dispatch = useDispatch()
   const input = useRef(null)
-
+  
   useEffect(() =>{
-    getAllCities()
-      .then( (data) =>{
-        setCities(data)
-        setAllCities(data)
-      })
-      .catch((err) => console.log(err))
+    dispatch(cityActions.get_cities())
   }, []);
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = async (e) =>{
     e.preventDefault();
     if(input.current.value){
       const queryParams = input.current.value;
-      getCityByName(queryParams)
-      .then((answer) => {
-        let citiesFound = []
-        answer.forEach((city) => {
-        if(city.name.toLowerCase().startsWith(queryParams.toLowerCase())){
-          citiesFound.push(city)
-        }
-        
-      })
-      return setCities(citiesFound)
-    })
-      .catch((err) => console.log(err))
+      dispatch(cityActions.filter_cities_by_name(queryParams))
     } else {
-      setCities(allCities)
+      dispatch(cityActions.get_cities())
     }
   }
 
@@ -49,11 +37,11 @@ const Cities = () => {
         <button> 🔎 </button>
       </form>
     </div>
-    <div className='Prueba01'>
-    {cities.length > 0?
+    <div>
+    {citiesInStore.length > 0?
     <div className='citiesDivContainer'>
-      {cities.map((cities) =>(
-        <CityCard name={cities.name} country={cities.country} description={cities.description} image={cities.image} alt={cities.alt} link={cities._id} key={cities._id}/>
+      {citiesInStore.map((cities, index) =>(
+        <CityCard name={cities.name} country={cities.country} description={cities.description} image={cities.image} alt={cities.alt} link={cities._id} key={index}/>
       ))
       }
       </div>:

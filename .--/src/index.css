@@ -154,8 +154,9 @@ main {
 .carrouselImage {
   border: 1px solid black;
   border-radius: 5px;
-  height: 187px;
-  width: 250px;
+  height: 159px;
+  width: 213px;
+  margin: 7px;
 }
 
 .containerCarr{
@@ -264,12 +265,12 @@ header {
 }
 
 .cityButton {
-  position: inheret;
+  position: inherit;
   bottom: 0;
 }
 
 .cityButton:hover{
-  background-color: rgb(16, 54, 74);
+  background-color: #631818;
 }
 
 h1{
@@ -299,25 +300,84 @@ h5{
 .cityPage{
   display: flex;
   flex-direction: column;
-  width: 25vw;
+  width: 65vw;
   border: 1px solid black;
   border-radius: 3px;
   padding: 1px;
 
-  margin: 2vh 35vw 15vh;
+  margin: 2vh 17vw 15vh;
 }
 
 .cityButtonSp {
-  margin: 05vh 11vw;
+  background-color: #a54848;
+  width: 63vw;
+  margin: 2vh 1vw 5vh;
 }
 
 .underConstruction{
-  font-size: 5vh;
+  font-size: 3vh;
   font-weight: 550;
+  font-style: italic;
+  padding: 1vh 3.5vw;
+  color: #631818;
+  text-shadow: 1px 4px rgba(106, 101, 101, 0.462);
+}
+
+.billIcon {
+  width: 1vw;
+  margin-left: 1vw;
+}
+
+.cityDetails {
+  display: flex;
+  flex-direction: row;
+}
+
+.itineraryCities {
+  margin-top: 3vh;
+  padding-left: 1vw;
+  width: 50vw;
+  border-left: 1px solid rgb(151, 147, 147);
+}
+
+.details {
+  margin-top: 3vh;
+  padding: 0vh 2vw;
+}
+
+.viewMore{
+  width: 23vw;
+}
+
+.cityImage {
+  margin-top: 4vh;
+  width: 34vw;
+  border: 1px solid black;
+}
+
+.itinerary {
+  margin: 0px 15px;
+}
+
+.noItinerary {
+  color: #631818a8;
+  text-shadow: 5px 4px rgba(119, 119, 119, 0.27);
+  margin-top: 2vh;
+  margin-left: 5px;
   font-style: italic;
 }
 
-@media (max-width: 1580px) and (min-width: 802px) {
+.itineraryProperty{
+  display: flex;
+  flex-direction: row;
+  color: rgba(87, 83, 83, 0.811);
+}
+h4{
+  margin-right: 7px;
+}
+
+
+@media (max-width: 1281px) and (min-width: 802px) {
   .containerMain{
     width: 100vw;
   box-sizing: border-box;
@@ -375,13 +435,17 @@ h5{
   }
 
   .cityPage{
-    margin: 2vh 35vw 25vh;
+    margin: 2vh 16vw 15vh;
   }
 
   .underConstruction{
-    font-size: 2vh;
+    font-size: 2.5vh;
     font-weight: 550;
     font-style: italic;
+  }
+
+  .cityImage {
+    margin-top: 10vh;
   }
 }
 
@@ -440,7 +504,32 @@ h5{
     border-radius: 3px;
     padding: 1px;
   
-    margin: 2vh 5vw 20vh;
+    margin: 2vh 14.5vw 20vh;
+  }
+
+  .cityImage {
+    width: 65.5vw;
+  }
+
+  .itineraryCities{
+    border-left: none;
+  }
+
+  .cityDetails{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .viewMore {
+    width: 25vw;
+    margin: 5vh 20vw;
+  }
+
+  .underConstruction {
+    font-size: 4vh;
+    padding: 1vh 5vw;
+    color: #631818;
+    text-shadow: 1px 4px rgba(106, 101, 101, 0.462);
   }
 }
 
@@ -514,13 +603,18 @@ h5{
   }
 
   .cityImage {
-    width: 79.5vw;
+    width: 76.5vw;
   }
 
   .underConstruction{
-    font-size: 15px;
+    font-size: 23px;
     font-weight: 550;
     font-style: italic;
+    margin: 1vh 2vw;
+  }
+
+  .cityButtonSp {
+    width: 78vw;
   }
 }
 @media (max-width: 360px) {
