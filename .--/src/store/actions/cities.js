@@ -3,7 +3,12 @@ import axios from "axios";
 
 const get_cities = createAsyncThunk('get_cities', async ()=>{
     try{
-        const cities = await axios.get("http://localhost:3000/api/cities")
+        let token = localStorage.getItem('token')
+        const headers = {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          };
+        const cities = await axios.get("http://localhost:3000/api/cities", { headers })
                         .then( (cities) =>{
                             return cities.data
                         })
@@ -17,7 +22,12 @@ const get_cities = createAsyncThunk('get_cities', async ()=>{
 
 const filter_cities_by_name = createAsyncThunk('filter_cities_by_name', async(query)=>{
     try{
-        const citiesFound = await axios.get("http://localhost:3000/api/cities/?name="+ query)
+        let token = localStorage.getItem('token')
+        const headers = {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          };
+        const citiesFound = await axios.get("http://localhost:3000/api/cities/?name="+ query, {headers})
             .then((citiesFound)=>{
                 return citiesFound.data
             })
@@ -31,7 +41,12 @@ const filter_cities_by_name = createAsyncThunk('filter_cities_by_name', async(qu
 
 const filter_cities_by_id = createAsyncThunk('filter_cities_by_id', async (id)=>{
     try{
-        const city = await axios.get("http://localhost:3000/api/city/"+id)
+        let token = localStorage.getItem('token')
+        const headers = {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          };
+        const city = await axios.get("http://localhost:3000/api/city/"+id, {headers})
                     .then((cities) =>{
                         console.log(cities.data);
                         return cities.data

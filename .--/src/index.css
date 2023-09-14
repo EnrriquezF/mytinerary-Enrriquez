@@ -376,6 +376,45 @@ h4{
   margin-right: 7px;
 }
 
+.loginCont {
+  margin: 5vh 4vw;
+}
+
+.signInButton, .signUpButton {
+  background-color: rgb(74, 70, 61);
+}
+.signincontainer, .signupcontainer {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.signingelement{
+  padding: 0.5vh vw;
+}
+
+.googleElem {
+  margin-left: 3vw;
+}
+
+.labelSign{
+  margin: 0.1vh 2vw;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+}
+
+.signOut {
+  box-sizing: border-box;
+  width:  10vw;
+  padding: 0em 0em;
+}
+
+.paragraph{
+  min-height: 500vh;
+}
 
 @media (max-width: 1281px) and (min-width: 802px) {
   .containerMain{
@@ -531,6 +570,7 @@ h4{
     color: #631818;
     text-shadow: 1px 4px rgba(106, 101, 101, 0.462);
   }
+
 }
 
 
@@ -616,6 +656,15 @@ h4{
   .cityButtonSp {
     width: 78vw;
   }
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5vw
+  }
+  .header {
+    display: block;
+    padding-left: 5vw
+  }
 }
 @media (max-width: 360px) {
   .containerMain{
@@ -687,5 +736,9 @@ h4{
   }
   button {
     background-color: #f9f9f9;
+  }
+  .navbar {
+    display: flex;
+    flex-direction: column;
   }
 }
