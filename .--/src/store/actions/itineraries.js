@@ -3,7 +3,12 @@ import axios from "axios";
 
 const filter_itineraries_by_city_id = createAsyncThunk('filter_itineraries_by_city_id', async(query)=>{
     try{
-        const itinerariesFound = await axios.get("http://localhost:3000/api/itinerary?id="+ query.id)
+        let token = localStorage.getItem('token')
+        const headers = {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          };
+        const itinerariesFound = await axios.get("http://localhost:3000/api/itinerary?id="+ query.id, {headers})
             .then((itinerariesFound)=>{
                 return itinerariesFound.data
             })
