@@ -2,22 +2,27 @@ import React, { useEffect, useRef } from 'react'
 import CityCard from '../components/cityCard'
 import { useDispatch, useSelector } from 'react-redux'
 import cityActions from '../store/actions/cities'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
+import userActions from '../store/actions/users'
 
 
 
 
 const Cities = () => {
+  let verification = localStorage.getItem('verified')
   let token = localStorage.getItem("token")
-  
-  if(!token){
-    return <Navigate to={'/login'}/>
-  }
-  
   let citiesInStore = useSelector(store => store.citiesReducer.cities)
 
   let dispatch = useDispatch()
   const input = useRef(null)
+  
+  if(!token&& !verification){
+    return <Navigate to={'/login'}/>
+  } else if ((token&& !verification) || (!token&& verification)){
+    dispatch(userActions.sign_out())
+    return <Navigate to={'/login'}/>
+  }
+  
   
   useEffect(() =>{
     dispatch(cityActions.get_cities())

@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import { Navigate, Outlet } from 'react-router-dom'
 
 function Layout() {
+  
   return (<>
     <Header />
     <Outlet />

@@ -14,7 +14,6 @@ const register = createAsyncThunk('register', async (user)=>{
             country: user.country
         })
         .then((response)=>{
-            console.log(response.data.message);
             return response.data.message
         })
         const Toast = Swal.mixin({
@@ -35,7 +34,13 @@ const register = createAsyncThunk('register', async (user)=>{
           })
         return {data: data}
     }catch(e){
-        console.log(e.message);
+        //console.log(e.message);
+        let errorMessages = e.response.data.message
+        Swal.fire({
+            icon: 'error',
+            title: "Oops... You couldnt sign up correctly!",
+            text: errorMessages
+        })
     }
 })
 
@@ -43,6 +48,7 @@ const login_user = createAsyncThunk('login_user', async(user)=>{
     try{
         const login = await axios.post("http://localhost:3000/api/user/login", {email: user.email, password: user.password})
         .then( (response)=> {
+            localStorage.setItem("verified", true)
             localStorage.setItem("token", response.data.token)
             localStorage.setItem("response", JSON.stringify(response.data.message))
             const Toast = Swal.mixin({
@@ -68,10 +74,9 @@ const login_user = createAsyncThunk('login_user', async(user)=>{
         let errorMessages = e.response.data.message
         Swal.fire({
             icon: 'error',
-            title: "Oops... You couldnt log in correctly!",
+            title: "Oops... You couldnt sign in correctly!",
             text: errorMessages
         })
-        //console.log(e.message);
     }
 })
 
@@ -85,13 +90,17 @@ const authenticate = createAsyncThunk('authenticate', async ()=>{
             }
         })
         .then((response)=>{
+          localStorage.setItem("verified", true)
             console.log("Authenticated succesfully");
-            //localStorage.setItem("token", response.data.token)
             return response.data.user
         })
+        
         return { user: user}
     }catch(error) {
-        console.log(error.message);
+        //console.log(error.message);
+        localStorage.removeItem('verified')
+        localStorage.removeItem('token')
+        localStorage.removeItem('response')
     }
 })
 
@@ -99,29 +108,42 @@ const sign_out = createAsyncThunk('sign_out', async()=>{
     try{
 
         let token = localStorage.getItem('token')
-        const headers = {
-            Authorization: `Bearer ${token}`,
-          };
-        await axios.post('http://localhost:3000/api/user/logout', null, {headers: headers})
+        await axios.post('http://localhost:3000/api/user/logout', null, {
+          headers: {
+              'Authorization': 'Bearer ' + token
+          }
+      })
           Swal.fire({
             title: 'Are you sure?',
             text: "You can sign in anytime you want, anyway!",
             icon: 'warning',
-            showCancelButton: true,
             confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes!'
+            confirmButtonText: 'Yes!',
+            showCancelButton: true,
+            cancelButtonText:'Stay here',
           }).then((result) => {
             if (result.isConfirmed) {
+            localStorage.removeItem("token")
+            localStorage.removeItem('response')
+            localStorage.removeItem('verified')
               Swal.fire(
                 'Logged out!',
                 'Hope you come back'
               )
-            };
-            localStorage.removeItem("token")
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Oki :)))'
+                  })
+            }
+            ;
+            
           })
     }catch(error) {
-        console.log(error.message);
+        let errorMessages = error.response.data
+          localStorage.removeItem("token")
+            localStorage.removeItem('response')
+            localStorage.removeItem('verified')
     }
 })
 

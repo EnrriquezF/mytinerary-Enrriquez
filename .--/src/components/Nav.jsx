@@ -9,19 +9,21 @@ export default function Nav() {
   let navigate = useNavigate()
     let dispatch = useDispatch();
     const SignOut = async (e) =>{
-      console.log("Probando");
       e.preventDefault();
       dispatch(userActions.sign_out()).then(()=>{
         setTimeout(()=>{
           navigate('/login')
-        }, 3000)
+        }, 1500)
         
-      });
+      }).catch(e)((()=>setTimeout(()=>{
+          navigate('/login')
+        }, 1)));
     }
+    const verification = localStorage.getItem('verified')
     let token = localStorage.getItem("token")
     return (
       <nav className="options title col-lg-3 px3">
-        {token? 
+        {verification && token ? 
         <div className='navbar'><Anchor href='/' content="Home"classes="navButton" size="1" />
         <Anchor href='/cities' content="Cities"classes="citiesButton navButton" size="1" />
         <form onSubmit={SignOut} className='signOut'>

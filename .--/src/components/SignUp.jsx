@@ -43,14 +43,11 @@ export default function SignUp() {
       name : dataUser.given_name,
       lastName : dataUser.family_name,
       photoURL : dataUser.picture,
-      country : "",
     }
     
+    dispatch(userActions.register(newUser))/* 
 
-    console.table(userRegistration);
-    dispatch(userActions.register(newUser))
-
-    await dispatch(userActions.login_user({email: newUser.email, password: newUser.password}))
+    await dispatch(userActions.login_user({email: newUser.email, password: newUser.password})) */
   }
   
   return (
@@ -88,8 +85,6 @@ export default function SignUp() {
           <GoogleLogin className="googleElem"
           text='signup_with'
             onSuccess={credentialResponse => {
-              console.log(credentialResponse);
-              console.log(jwtDecode(credentialResponse.credential));
               signUpGoogle(credentialResponse)
             }}
             onError={() => {
