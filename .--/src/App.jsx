@@ -25,7 +25,7 @@ const router = createBrowserRouter([
 function App() {
   let dispatch = useDispatch();
   useEffect(()=>{
-    dispatch(userActions.authenticate())
+    dispatch(userActions.authenticate()).then((()=> localStorage.setItem('verified', true)))
   })
   return (
     <>

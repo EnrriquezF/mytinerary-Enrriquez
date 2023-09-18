@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import SignIn from '../components/SignIn'
 import SignUp from '../components/SignUp'
+import { Navigate } from 'react-router-dom'
 
 export default function Login() {
   let [sign, setSign] = useState(0)
@@ -10,6 +11,12 @@ export default function Login() {
     } else{
       setSign(0)
     }
+  }
+  
+  const verification = localStorage.getItem('verified')
+  const token = localStorage.getItem('token')
+  if(token && verification){
+    return <Navigate to={'/'}/>
   }
   
   return (
