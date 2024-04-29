@@ -11,5 +11,8 @@ export default defineConfig({
   server: { //server URI changed to localhost:5173
     port: 5173,
   },
+  build: {
+    sourcemap: true,
+  },
 })
 
