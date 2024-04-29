@@ -21,19 +21,24 @@ export default function Login() {
   
   return (
     <div className='loginCont'>
-      <div>
-        <button onClick={()=> handlerSign()} className='signInButton signincontainer'><h2>Log in</h2></button>
-        <div>
-          {sign == 0 && <SignIn/>}
+          {sign == 0 && <div className='loginPage'>
+        <h1>Sign in</h1>
+        <div className='loginInterface'>
+          <SignIn/>
+          <p onClick={()=> handlerSign()}>Don't have an account? Sign UP !!</p>
         </div>
-      </div>
-      <div>
-        <button onClick={()=> handlerSign()} className='signUpButton signupcontainer'><h2>Sign up</h2></button>
-        <div>
-          {sign == 1 && <SignUp/>}
+      </div>}
+          
+      
+      
+          {sign == 1 && <div  className='loginPage'>
+        <h1>Sign up</h1>
+        <div className='loginInterface'>
+          <SignUp/>
+          <p onClick={()=> handlerSign()}>Do you already have an account? Sign in !!</p>
         </div>
-      </div>
-        
+      </div>}
+          
     </div>
   )
 }

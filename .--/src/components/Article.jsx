@@ -10,7 +10,7 @@ export default function Article({ title, paragraph, link }) {
     <p className='text-start'>
       {paragraph}
     </p>
-    <AnchorB to={link}><button type="button" className="citiesButton">Watch our cities options</button></AnchorB>
+    <AnchorB to={link}><button type="button" className="citiesOptButton">Watch our cities options</button></AnchorB>
   </article>
   )
 }

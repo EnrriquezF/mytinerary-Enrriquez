@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className='header'>
       <div className="">
-        <AnchorB to="/"><h2>MyTinerary</h2></AnchorB>
+        <AnchorB to="/"><h2 className='home'>MyTinerary</h2></AnchorB>
       </div>
       <Nav/>
       </header>

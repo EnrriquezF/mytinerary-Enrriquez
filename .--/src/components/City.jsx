@@ -12,36 +12,46 @@ export default function City() {
   let dispatch = useDispatch()
   let verification = localStorage.getItem('verified')
   let token = localStorage.getItem("token")
-  
-  if(!token&& !verification){
-    return <Navigate to={'/login'}/>
-  }else if (token && !verification) {
-    dispatch(userActions.sign_out())
-    return <Navigate to={'/login'}/>
-  }
- 
-
   useEffect(() =>{
     dispatch(cityActions.filter_cities_by_id(id))
   }, []);
 
-  let itineraries = cityInStore.itineraries;
   return (
-    <div className='cityPage'>
-      <div className='cityDetails'>
-        <div className='details'>
-          <h2>{cityInStore.name}, from {cityInStore.country}</h2>
-          <p className='cityDescription'>{cityInStore.description}</p>
+    <div className='cityPage'>{cityInStore.name == undefined || cityInStore.name == null ?
+      <div className='cityContainer'>
+        <div>
+            <h1>Loading</h1>
+        </div>
+        <div className='cityDetailsEmpty'>
+          <h2>Loading</h2>
+        </div>
+        <AnchorB to="/cities/">
+          <button className='cityButton'>
+            Go back to Cities
+          </button>
+        </AnchorB>
+      </div>
+      :
+      <div className='cityContainer'>
+        <div>
+            <h1>• {cityInStore.name}</h1>
+        </div>
+        <div className='cityDetails'>
+          <div className='details'>
+            <h2>{cityInStore.name}, {cityInStore.country}</h2>
+            <p className='cityDescription'>{cityInStore.description}</p>
+            <Itinerary id= {id}/>
+          </div>
           <img src={cityInStore.image} alt={cityInStore.alt} className='cityImage'/>
         </div>
-        <Itinerary id= {id}/>
+        <AnchorB to="/cities/">
+          <button className='cityButton'>
+            Go back to Cities
+          </button>
+        </AnchorB>
       </div>
+    }
       
-      <AnchorB to="/cities/">
-        <button className='cityButton cityButtonSp'>
-          Go back to Cities
-        </button>
-      </AnchorB>
     </div>
   )
 }

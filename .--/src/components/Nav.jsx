@@ -27,12 +27,12 @@ export default function Nav() {
         <div className='navbar'><Anchor href='/' content="Home"classes="navButton" size="1" />
         <Anchor href='/cities' content="Cities"classes="citiesButton navButton" size="1" />
         <form onSubmit={SignOut} className='signOut'>
-          <button  classes="signOutButton">Log out</button>
+          <button  className="signOutButton">Sign out</button>
         </form></div>
         :
         <div className='navbar'><Anchor href='/' content="Home"classes="navButton" icon="" size="1" />
       <Anchor href='/cities' content="Cities"classes="citiesButton navButton" icon="" size="1" />
-      <Anchor href="/login"content="Log In"classes="loginButton navButton" icon="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" size="16" /></div>}
+      <Anchor href="/login"content="Sign In"classes="loginButton navButton" icon="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" size="16" /></div>}
         
       </nav>
     )

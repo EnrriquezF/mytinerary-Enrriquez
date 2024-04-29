@@ -9,9 +9,6 @@ const Home = () => {
   let verification= localStorage.getItem('verificated')
   const dispatch = useDispatch()
   
-  if(!token&& !verification){
-    return <Navigate to={'/login'}/>
-  } 
   return (
     <>
     <Main />
