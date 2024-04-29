@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import CityCard from '../components/cityCard'
+import CityCard from '../components/CityCard'
 import { useDispatch, useSelector } from 'react-redux'
 import cityActions from '../store/actions/cities'
 import { Navigate, useNavigate } from 'react-router-dom'
