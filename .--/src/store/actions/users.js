@@ -1,11 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "toastify-js/src/toastify.css"
 
 const register = createAsyncThunk('register', async (user)=>{
     try{
-        const data = await axios.post("http://localhost:3000/api/user/register", {
+        const data = await axios.post("https://mytinerary-back-enrriquezflorencia.onrender.com/api/user/register", {
             email: user.email,
             password: user.password,
             name: user.name,
@@ -46,7 +47,7 @@ const register = createAsyncThunk('register', async (user)=>{
 
 const login_user = createAsyncThunk('login_user', async(user)=>{
     try{
-        const login = await axios.post("http://localhost:3000/api/user/login", {email: user.email, password: user.password})
+        const login = await axios.post("https://mytinerary-back-enrriquezflorencia.onrender.com/api/user/login", {email: user.email, password: user.password})
         .then( (response)=> {
             localStorage.setItem("verified", true)
             localStorage.setItem("token", response.data.token)
@@ -84,7 +85,7 @@ const authenticate = createAsyncThunk('authenticate', async ()=>{
     try{
         let token = localStorage.getItem("token")
         
-        let user = await axios.post('http://localhost:3000/api/user/authenticated', null, {
+        let user = await axios.post('https://mytinerary-back-enrriquezflorencia.onrender.com/api/user/authenticated', null, {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
@@ -108,7 +109,7 @@ const sign_out = createAsyncThunk('sign_out', async()=>{
     try{
 
         let token = localStorage.getItem('token')
-        await axios.post('http://localhost:3000/api/user/logout', null, {
+        await axios.post('https://mytinerary-back-enrriquezflorencia.onrender.com/api/user/logout', null, {
           headers: {
               'Authorization': 'Bearer ' + token
           }

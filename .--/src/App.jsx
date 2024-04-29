@@ -1,10 +1,12 @@
 /* import { useState } from 'react' */
 import React, { useEffect } from 'react'
 import Layout from './layouts/Layout'
-import './App.css'
+//import './App.css'
 import Home from './pages/Home'
 import Cities from './pages/Cities'
 import City from './components/City'
+import Info from './components/Info'
+import Error from './components/Error'
 
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Login from './pages/Login'
@@ -17,7 +19,9 @@ const router = createBrowserRouter([
       {path: '/', element:<Home />},
       {path: '/cities/', element: <Cities/>},
       {path: '/city/:id', element: <City />},
-      {path: '/login', element: <Login/>}
+      {path: '/login', element: <Login/>},
+      {path: '/info',  element: <Info />},
+      {path: '*',  element: <Error />}
     ]
   }
 ])

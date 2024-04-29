@@ -24,28 +24,32 @@ export default function Itinerary(id) {
     <div className='itineraryCities'>
       <h2>Itineraries</h2>
       <div>
-      {itineraryInStore.length > 0?
+      {
+      itineraryInStore.length == 1 && itineraryInStore[0].name == ""?<div className='LoadingItinerary'><p>Loading</p></div>:
+      itineraryInStore.length >= 1 && itineraryInStore[0].name.length > 1?
       <div className='itinerary'>
-      {itineraryInStore.map((data, index) =>(
-      <div key={index}>
-        <h3>• {data.name}</h3>
-        <div className="itineraryProperty">
-          {data.hashtags.map((hashtag, wordIndex)=>(<p key={wordIndex}>#{hashtag}</p>))}
+        {itineraryInStore.map((data, index) =>(
+        <div key={index}>
+          <h3>• {data.name}</h3>
+          <div className="itineraryProperty">
+            {data.hashtags.map((hashtag, wordIndex)=>(<p key={wordIndex}>#{hashtag}</p>))}
+          </div>
+          <div className="itineraryProperty"><h4>Duration: </h4> {data.duration} hour(s).</div>
+          <div className="itineraryProperty"><h4>Price: </h4> ${data.price} <img src ="/bill.png" alt="bill icon" className='billIcon'/></div>
+          <div className="itineraryProperty"><h4>Likes: </h4> {data.likes}.</div>
+          <button onClick={()=>openTabEvents(index)} className='viewMore'>
+            {viewMore === index? 'View Less' : 'View More'}
+          </button>
+          { viewMore === index &&
+          (
+            <p className='underConstruction'> ... Under Construction</p>
+          )
+          }
         </div>
-        <div className="itineraryProperty"><h4>Duration: </h4> {data.duration} hour(s).</div>
-        <div className="itineraryProperty"><h4>Price: </h4> ${data.price} <img src ="/bill.png" alt="bill icon" className='billIcon'/></div>
-        <div className="itineraryProperty"><h4>Likes: </h4> {data.likes}.</div>
-        <button onClick={()=>openTabEvents(index)} className='viewMore'>
-          {viewMore === index? 'View Less' : 'View More'}
-        </button>
-        { viewMore === index &&
-        (
-          <p className='underConstruction'> ... Under Construction</p>
-        )
-        }
+        ))}
       </div>
-      ))}</div>
-      :<h2 className='noItinerary'>There is not any itinerary to show</h2>
+      :
+      <h2 className='noItinerary'>There is not any itinerary to show</h2>
       }
       </div>
     </div>

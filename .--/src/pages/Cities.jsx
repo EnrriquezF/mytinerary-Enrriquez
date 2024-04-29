@@ -16,13 +16,6 @@ const Cities = () => {
   let dispatch = useDispatch()
   const input = useRef(null)
   
-  if(!token&& !verification){
-    return <Navigate to={'/login'}/>
-  } else if ((token&& !verification) || (!token&& verification)){
-    dispatch(userActions.sign_out())
-    return <Navigate to={'/login'}/>
-  }
-  
   
   useEffect(() =>{
     dispatch(cityActions.get_cities())
@@ -38,30 +31,42 @@ const Cities = () => {
     }
   }
 
-
-  return (<>
+  return (<div className='cityPageMain'>
     <div className='citiesContainer'>
       <div className='h1Cities'>
       <h1>Cities</h1>
       </div>
       <form className='searcher' onSubmit={handleSubmit}>
         <input type="text" ref={input}/>
-        <button> 🔎 </button>
+        <button className='searchBar'> 🔎 </button>
       </form>
     </div>
-    <div>
-    {citiesInStore.length > 0?
+    <div className='citiesContainerr'>
+    {citiesInStore.length > 1?
     <div className='citiesDivContainer'>
       {citiesInStore.map((cities, index) =>(
         <CityCard name={cities.name} country={cities.country} description={cities.description} image={cities.image} alt={cities.alt} link={cities._id} key={index}/>
       ))
       }
       </div>:
+      
+      citiesInStore.length == 1?
       <div className='citiesEmptyDivContainer'>
+        {citiesInStore[0].name == ""? <div className='citiesLoading'><h2>Loading</h2></div>:
+        <div className='citiesDivContainer'>
+        {citiesInStore.map((cities, index) =>(
+          <CityCard name={cities.name} country={cities.country} description={cities.description} image={cities.image} alt={cities.alt} link={cities._id} key={index}/>
+        ))
+        }
+        </div>
+        }
+      </div>:
+      
+      <div className='citiesLoading'>
         <h2>No results found.</h2>
       </div>}
       </div>
-      </>
+      </div>
     )
 }
 

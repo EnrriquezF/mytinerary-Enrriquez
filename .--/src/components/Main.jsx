@@ -35,27 +35,26 @@ export default function () {
     }
   
     useEffect(()=>{
-      setInterval(()=>{mainImage()}, 3000)
+      setInterval(()=>{mainImage()}, 5000)
     },[image])
   return (
       <main className='containerMain'>
+        
+         {image === 1 && <img src={image1} alt="background image" className='img-bg' />}
+         {image === 2 && <img src={image2} alt="background image" className='img-bg' />}
+         {image === 3 && <img src={image3} alt="background image" className='img-bg' />}
+         {image === 4 && <img src={image4} alt="background image" className='img-bg' />}
+         {image === 5 && <img src={image5} alt="background image" className='img-bg' />}
+         {image === 6 && <img src={image6} alt="background image" className='img-bg' />}
+         {image === 7 && <img src={image7} alt="background image" className='img-bg' />}
+         {image === 8 && <img src={image8} alt="background image" className='img-bg' />}
+         {image === 9 && <img src={image9} alt="background image" className='img-bg' />}
+         {image === 10 && <img src={image10} alt="background image" className='img-bg' />}
+         {image === 11 && <img src={image11} alt="background image" className='img-bg' />}
+         {image === 12 && <img src={image12} alt="background image" className='img-bg' />}
         <div className='textContainer'>
           {data.map(each=> <Article key={each.key}title={each.title} paragraph={each.paragraph} link={each.link}></Article>)}
         </div>
-        <div>
-         {image === 1 && <img src={image1} alt="" className='homeImage' />}
-         {image === 2 && <img src={image2} alt="" className='homeImage' />}
-         {image === 3 && <img src={image3} alt="" className='homeImage' />}
-         {image === 4 && <img src={image4} alt="" className='homeImage' />}
-         {image === 5 && <img src={image5} alt="" className='homeImage' />}
-         {image === 6 && <img src={image6} alt="" className='homeImage' />}
-         {image === 7 && <img src={image7} alt="" className='homeImage' />}
-         {image === 8 && <img src={image8} alt="" className='homeImage' />}
-         {image === 9 && <img src={image9} alt="" className='homeImage' />}
-         {image === 10 && <img src={image10} alt="" className='homeImage' />}
-         {image === 11 && <img src={image11} alt="" className='homeImage' />}
-         {image === 12 && <img src={image12} alt="" className='homeImage' />}
-         </div> 
       </main>
   )
 }

@@ -48,7 +48,7 @@ export default function SignIn() {
                 <input type='password' ref={passwordInputRef}/>
             </label>
         </div>
-        <button className='signInButton signingelement'>Log in</button>
+        <button className='signInButton signingelement'>Sign in</button>
           <GoogleLogin 
             text='signin_with'
             onSuccess={credentialResponse => {signInGoogle(credentialResponse)}}

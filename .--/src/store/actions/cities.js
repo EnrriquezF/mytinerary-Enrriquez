@@ -8,7 +8,7 @@ const get_cities = createAsyncThunk('get_cities', async ()=>{
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           };
-        const cities = await axios.get("http://localhost:3000/api/cities", { headers })
+        const cities = await axios.get("https://mytinerary-back-enrriquezflorencia.onrender.com/api/cities", { headers })
                         .then( (cities) =>{
                             return cities.data
                         })
@@ -27,7 +27,7 @@ const filter_cities_by_name = createAsyncThunk('filter_cities_by_name', async(qu
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           };
-        const citiesFound = await axios.get("http://localhost:3000/api/cities/?name="+ query, {headers})
+        const citiesFound = await axios.get("https://mytinerary-back-enrriquezflorencia.onrender.com/api/cities/?name="+ query, {headers})
             .then((citiesFound)=>{
                 return citiesFound.data
             })
@@ -46,9 +46,8 @@ const filter_cities_by_id = createAsyncThunk('filter_cities_by_id', async (id)=>
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           };
-        const city = await axios.get("http://localhost:3000/api/city/"+id, {headers})
+        const city = await axios.get("https://mytinerary-back-enrriquezflorencia.onrender.com/api/city/"+id, {headers})
                     .then((cities) =>{
-                        console.log(cities.data);
                         return cities.data
                     })
                     

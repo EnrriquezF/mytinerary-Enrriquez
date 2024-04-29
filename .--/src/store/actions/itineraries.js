@@ -8,7 +8,7 @@ const filter_itineraries_by_city_id = createAsyncThunk('filter_itineraries_by_ci
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           };
-        const itinerariesFound = await axios.get("http://localhost:3000/api/itinerary?id="+ query.id, {headers})
+        const itinerariesFound = await axios.get("https://mytinerary-back-enrriquezflorencia.onrender.com/api/itinerary?id="+ query.id, {headers})
             .then((itinerariesFound)=>{
                 return itinerariesFound.data
             })
