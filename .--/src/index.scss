@@ -621,9 +621,24 @@
   }
 }
 @media (max-width: 850px) {
+  .cityDetails {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }.details {
+    width: 80%;
+    padding: 25px 10%;
+  }.cityImage {
+  width: 80%;
+  margin: 25px 10%;
+}
   footer{
     position: relative;
-  }
+  }.footerContainer {
+  flex-direction: column;
+  height: 10vh;
+}
   .containerCarr{
     margin-bottom: 0vh;
   }
@@ -712,7 +727,10 @@
 
   .navButton, .signOutButton  {
     margin-top: 5px;
-  }
+  }.footerContainer {
+  flex-direction: column;
+  height: 15vh;
+}
 }
 @media (min-width: 3829px) {
   .navButton{  padding: 0vh 0vw;}
@@ -744,328 +762,4 @@
     margin-top: 3vh;
   }
 }
-
-  /* @media (max-width: 1281px) and (min-width: 802px) {
-    .containerMain{
-      width: 100vw;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    padding: 0vh 15vw;
-    }
-    .homeImage {
-      width: 50vw;
-    }
-  
-    .carrouselImage {
-      height: 35vw;
-      width: 60vw;
-    }
-    .carrouselDiv{
-      width: 60vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-self: center;
-      flex-wrap: nowrap;
-      align-items: center;
-    }
-    .containerCarr {
-      width: 99.99vw;
-    }
-  
-    .citiesDivContainer{
-      display: grid;
-      grid-template-columns: repeat(3, 0fr);
-      grid-gap: 10vw;
-      grid-auto-rows: minmax(33vh, auto);
-      vertical-align: middle;
-      min-height: 25vh;
-    }
-    
-    .divCard {
-      margin: 2vh 2vw;
-      padding: 1vh 1vw;
-      border: 1px solid black;
-      border-radius: 10px;
-      height: 80vh;
-    }
-    
-    .imgCityCard{
-      width: 17vw;
-      height: 12vh;
-      border: 1px solid black;
-      border-radius: 5px;
-    }
-  
-    .cityPage{
-      margin: 2vh 16vw 15vh;
-    }
-  
-    .underConstruction{
-      font-size: 2.5vh;
-      font-weight: 550;
-      font-style: italic;
-    }
-  
-    .cityImage {
-      margin-top: 10vh;
-    }
-  }
-  
-  @media (max-width: 801px) {
-    .containerMain{
-      width: 100vw;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    padding: 0vh 15vw;
-    }
-    .homeImage {
-      width: 50vw;
-    }
-  
-    .carrouselDiv{
-      width: 35vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-self: center;
-      flex-wrap: nowrap;
-      align-items: center;
-    }
-    
-    .citiesDivContainer{
-      display: grid;
-      grid-template-columns: repeat(2, 0fr);
-      grid-gap: 3vw;
-      grid-auto-rows: minmax(33vh, auto);
-      vertical-align: middle;
-      min-height: 105vh;
-    }
-    
-    .divCard {
-      margin: 2vh 2vw;
-      padding: 1vh 1vw;
-      border: 1px solid black;
-      border-radius: 10px;
-      height: 60vh;
-    }
-    
-    .imgCityCard{
-      width: 40vw;
-      height: 18vh;
-      border: 1px solid black;
-      border-radius: 5px;
-    }
-    .cityPage{
-      width: 70vw;
-      border: 1px solid black;
-      border-radius: 3px;
-      padding: 1px;
-    
-      margin: 2vh 14.5vw 20vh;
-    }
-  
-    .cityImage {
-      width: 65.5vw;
-    }
-  
-    .itineraryCities{
-      border-left: none;
-    }
-  
-    .cityDetails{
-      display: flex;
-      flex-direction: column;
-    }
-  
-    .viewMore {
-      width: 25vw;
-      margin: 5vh 20vw;
-    }
-  
-    .underConstruction {
-      font-size: 4vh;
-      padding: 1vh 5vw;
-      color: #631818;
-      text-shadow: 1px 4px rgba(106, 101, 101, 0.462);
-    }
-  
-  }
-  
-  
-  @media (max-width: 670px) {
-    .containerMain{
-      width: 100vw;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    padding: 2vh 15vw;
-    }
-    .homeImage {
-      width: 70vw;
-      margin: 5vh 0vw;
-    }
-  
-    .carrButton{
-      width: 2vw;
-    }
-    .carrouselImage {
-      width: 50vw;
-      height: 35vw;
-    }
-  
-    .carrouselDiv{
-      width: 65vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-self: center;
-      flex-wrap: nowrap;
-      align-items: center;
-    }
-    
-    .citiesDivContainer{
-      display: grid;
-      grid-template-columns: repeat(1, 0fr);
-      grid-gap: 4vw;
-      grid-auto-rows: minmax(33vh, auto);
-      vertical-align: middle;
-      min-height: 15vh;
-    }
-    
-    .divCard {
-      margin: 2vh 1vw 2vh 3vw;
-      padding: 1vh 1vw;
-      border: 1px solid black;
-      border-radius: 10px;
-      height: 63vh;
-    }
-    
-    .imgCityCard{
-      width: 90vw;
-      height: 30vh;
-      border: 1px solid black;
-      border-radius: 5px;
-    }
-  
-    .cityPage{
-      width: 80vw;
-      border: 1px solid black;
-      border-radius: 3px;
-      padding: 1px;
-    
-      margin: 2vh 5vw 20vh;
-    }
-  
-    .cityImage {
-      width: 76.5vw;
-    }
-  
-    .underConstruction{
-      font-size: 23px;
-      font-weight: 550;
-      font-style: italic;
-      margin: 1vh 2vw;
-    }
-  
-    .cityButtonSp {
-      width: 78vw;
-    }
-    .navbar {
-      display: flex;
-      flex-direction: column;
-      padding-left: 5vw
-    }
-    .header {
-      display: block;
-      padding-left: 5vw
-    }
-  }
-  @media (max-width: 360px) {
-    .containerMain{
-      width: 100vw;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    padding: 2vh 15vw;
-    }
-    .homeImage {
-      width: 70vw;
-      margin: 5vh 0vw;
-    }
-  
-    .carrButton{
-      width: 2vw;
-    }
-    .carrouselImage {
-      width: 50vw;
-      height: 25vw;
-    }
-  
-    .carrouselDiv{
-      width:60vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-self: center;
-      flex-wrap: nowrap;
-      align-items: center;
-    }
-    
-    .citiesDivContainer{
-      display: grid;
-      grid-template-columns: repeat(1, 0fr);
-      grid-gap: 4vw;
-      grid-auto-rows: minmax(33vh, auto);
-      vertical-align: middle;
-      min-height: 15vh;
-    }
-    
-    .divCard {
-      margin: 2vh 2vw;
-      padding: 1vh 1vw;
-      border: 1px solid black;
-      border-radius: 10px;
-      height: 63vh;
-    }
-    
-    .imgCityCard{
-      width: 90vw;
-      height: 30vh;
-      border: 1px solid black;
-      border-radius: 5px;
-    }
-  }
-  
-  @media (prefers-color-scheme: light) {
-    :root {
-      color: #213547;
-      background-color: #ffffff;
-    }
-    a:hover {
-      color: #747bff;
-    }
-    button {
-      background-color: #f9f9f9;
-    }
-    .navbar {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-*/
   
