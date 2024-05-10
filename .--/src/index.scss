@@ -168,6 +168,9 @@
     font-weight: 550;
     background-color: #A5B24F;
     border: 1px solid #A5B24F;
+  }.citiesOptButton:hover{
+    background-color: #8e9e27;
+    border: 1px solid #8e9e27;
   }
   
   img{
@@ -363,6 +366,30 @@
     padding: 0px 10%;
   }
 
+  .cityMenu, .loginMenu{
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content:  space-between;
+    align-items: center;height: 90px;
+  }
+
+  .goBack {
+    width: 30px;
+  }
+
+  .goBackButton {
+    margin: 35px 10px 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: #9BBC9A;
+    border: 1px solid #9BBC9A;
+  }.goBackButton:hover{
+    background-color: #7da97b;
+    border: 1px solid #7da97b;
+  }
+
   
   .cityButtonSp {
     background-color: #a54848;
@@ -496,8 +523,10 @@
   .infoPage p {
     text-indent: 25px;
   }
-  .infoPage li:hover{
-    text-shadow: 1px 1px 3px #6c886b;
+  .infoPage a:hover, .footerLink:hover{
+    text-shadow: 1px 1px 3px #b5d1b4;
+  }.footerLink:hover {
+    font-weight: 520;
   }
 
   .infoPage p a {
@@ -657,7 +686,19 @@
    height: 100%;
  }
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+  .goBackButton {
+    margin: 35px 10px 15px;
+    width: 100%;
+    height: 25px ;
+    border-radius: 5px
+  }
+  .cityMenu, .loginMenu{
+    flex-direction: column;
+    height: fit-content;
+    margin-bottom: 15px;
+    line-height: 0.9;
+  }
   header{
     flex-direction: column;
     height: fit-content;
@@ -709,6 +750,16 @@
   }
 }
 @media (max-width: 420px){
+  nav {
+    width: 80%;
+  }
+  .navbar, .navbar button {
+    width: 100%;
+  }
+  .cityPage {
+    width: 100%;
+    padding: 0px;
+  }
   .citiesDivContainer{
     display: grid;
     grid-gap: 0.5% 3%;
@@ -732,18 +783,21 @@
   height: 15vh;
 }
 }
-@media (min-width: 3829px) {
-  .navButton{  padding: 0vh 0vw;}
+@media (min-width: 3429px) {
+  img.img-bg{
+    max-height: 70vh;
+    object-fit: unset;
+  }
+  body{
+    font-size: larger;
+  }
+  .navButton{
+    padding: 0vh 0vw;
+  }
   .carrouselImage {
-    width: 600px;
+    width: 430px;
     height: auto;
   }
-  .carrButton{
-    min-height: 80vh;
-    margin-top: 10vh;
-  }
-}
-@media (min-width: 3840px) and (min-height: 2160px) {
   .cityContainer{
     height: 77vh;
   }
@@ -758,8 +812,81 @@
     margin-bottom: 5vh;
   }
   .carrButton{
-    min-height: 48vh;
+    min-height: 40vh;
     margin-top: 3vh;
   }
 }
+@media (min-width: 3829px) {
+  .navButton{
+    padding: 0vh 0vw;
+  }
+  .carrouselImage {
+    width: 50px;
+    height: auto;
+  }
+  .carrButton{
+    min-height: 80vh;
+    margin-top: 10vh;
+  }
+}
+@media (min-width: 3839px)  {
+  .cityContainer{
+    height: 77vh;
+  }
+  .containerCarr {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #9BBC9A;
+    color: #644B4B;
+    padding: 0vh 0vw;
+    margin-bottom: 5vh;
+  }
+  .carrouselImage {
+    width: auto;
+    height: 450px;
+  }.carrouselDiv:last-child {
+    margin-bottom: 100px;
+  }
+  .carrButton{
+    min-height: 80vh;
+    margin-top: 3vh;
+  }
+  .cityImage{
+    width: auto;
+    height: 6%;
+  }
+
+  .cityDetails{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .cityButton {
+    margin: 2% 5%;
+  }
+}
   
+@media (min-width: 4500px) {
+  .cityImage{
+    width: auto;
+    height: 60vh;
+  }
+
+  .carrouselImage {
+    width: 775px;
+    height: auto;
+  }
+  .carrButton{
+    min-height: 87vh;
+  }
+  .cityDetails{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .cityButton {
+    margin: 2% 5%;
+  }
+}
