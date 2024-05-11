@@ -2,9 +2,11 @@
 
 A tourism destinations webpage made as a project for MindHub Bootcamps. This repository is for the front page development, made with React+Vite
 
-### Design: I made the whole design in Figma, using a green palette to stimulate a calming sense of renewal in the user. Used a sass stylesheet.
+### Design:
+I made the whole design in Figma, using a green palette to stimulate a calming sense of renewal in the user. Used a sass stylesheet.
 
-### Development: Made with ReactJS + Vite, vanilla JS, React Router Dom, React Redux. The project has a server-side.
+### Development:
+Made with ReactJS + Vite, vanilla JS, React Router Dom, React Redux. The project has a server-side.
 
 ## Figma Sketch:
 ![a figma sketch about a tourism website homepage](https://github.com/EnrriquezF/mytinerary-Enrriquez/assets/102559480/dc8815f8-3b53-4a97-98d0-8a6ff215d86c)
