@@ -40,7 +40,6 @@ export default function Info() {
         <ul>
           <li><a href='https://github.com/EnrriquezF/mytinerary-Enrriquez' target='_blank' rel='noopener noreferrer'>GitHub Repository Front End</a></li>
           <li><a href='https://github.com/EnrriquezF/mytinerary-back-enrriquezFlorencia' target='_blank' rel='noopener noreferrer'>GitHub Repository Back End</a></li>
-          <li><a href='#' target='_blank' rel='noopener noreferrer'>Personal Website / Portfolio</a></li>
           <li><a href='https://www.linkedin.com/in/florencia-enrriquez-34bb61234/' target='_blank' rel='noopener noreferrer'>LinkedIn</a></li>
         </ul>
       </div> 
